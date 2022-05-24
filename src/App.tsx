@@ -1,5 +1,8 @@
 import React from "react";
 
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+
 import {
   AppShell,
   ColorScheme,
@@ -10,10 +13,15 @@ import { useLocalStorage } from "@mantine/hooks";
 import { NotificationsProvider } from "@mantine/notifications";
 
 import Header from "./components/Header";
-import Homepage from "./pages/Homepage/Homepage";
+import store from "./store/store";
+import AppRoutes from "./AppRoutes";
 
 export default function App() {
-  return <UiProvider />;
+  return (
+    <Provider store={store}>
+      <UiProvider />
+    </Provider>
+  );
 }
 
 function UiProvider() {
@@ -42,20 +50,22 @@ function UiProvider() {
 
 function AppLayout() {
   return (
-    <AppShell
-      header={<Header />}
-      padding="md"
-      fixed={true}
-      styles={(theme) => ({
-        main: {
-          backgroundColor:
-            theme.colorScheme === "dark"
-              ? theme.colors.dark[8]
-              : theme.colors.gray[0],
-        },
-      })}
-    >
-      <Homepage />
-    </AppShell>
+    <BrowserRouter>
+      <AppShell
+        header={<Header />}
+        padding="md"
+        fixed={true}
+        styles={(theme) => ({
+          main: {
+            backgroundColor:
+              theme.colorScheme === "dark"
+                ? theme.colors.dark[8]
+                : theme.colors.gray[0],
+          },
+        })}
+      >
+        <AppRoutes />
+      </AppShell>
+    </BrowserRouter>
   );
 }
