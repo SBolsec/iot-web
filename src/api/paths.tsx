@@ -2,7 +2,7 @@ import { FindMessagesQuery } from "./types";
 import { createQuery } from "./util";
 
 const API_BASE_URL =
-  "http://iotrest-env.eba-d6ximnmy.eu-central-1.elasticbeanstalk.com/";
+  "http://iotrest-env.eba-d6ximnmy.eu-central-1.elasticbeanstalk.com";
 
 const api = {
   messages: `${API_BASE_URL}/messages`,

@@ -205,6 +205,8 @@ function RoomCard({ room }: RoomCardProps) {
             <form onSubmit={form.onSubmit(onSubmit)}>
               <NumberInput
                 label="Threshold"
+                min={0}
+                max={100}
                 {...form.getInputProps("threshold")}
               />
               <Group position="right" spacing={5} mt={10}>
