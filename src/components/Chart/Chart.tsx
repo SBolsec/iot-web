@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Card } from "@mantine/core";
-
 import ReactApexChart from "react-apexcharts";
 
 import { MessageResponse } from "../../api/types";
@@ -28,11 +26,11 @@ export default function Chart({ messages, filteredRoom }: ChartCardProps) {
       meta: {
         //@ts-ignore
         room: message.topic.match(/(\d+)/)[0],
-        topic: message.topic,
       },
     }))
     .filter((value) =>
-      filteredRoom ? value.meta.topic === filteredRoom : true
+      //@ts-ignore
+      filteredRoom ? value.meta.room === filteredRoom.match(/(\d+)/)[0] : true
     );
 
   const series: ApexAxisChartSeries = [{ name: "Humidity", data }];

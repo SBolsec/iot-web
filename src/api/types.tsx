@@ -1,3 +1,5 @@
+// messages
+
 export type FindMessagesQuery = {
   minutes?: number;
 };
@@ -14,7 +16,9 @@ export type MessageFilter = {
   time: number;
 };
 
-export type TopicInfoCommand = {
+// topic-info
+
+export type CreateTopicInfoCommand = {
   room: number;
   threshold: number;
 };

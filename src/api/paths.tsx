@@ -11,5 +11,11 @@ const api = {
 };
 
 export const message = {
-  findAll: (query: FindMessagesQuery) => `${api.messages}/?${createQuery(query)}`,
+  findAll: (query: FindMessagesQuery) =>
+    `${api.messages}/?${createQuery(query)}`,
+};
+
+export const topicInfo = {
+  findAll: api.topicInfo,
+  create: api.topicInfo,
 };

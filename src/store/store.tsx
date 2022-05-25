@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import { message } from "./slices/messages.slice";
+import { topicInfo } from "./slices/topicInfo.slice";
 
-const store = configureStore({
-  reducer: {
-    message,
-  },
-});
+const reducer = {
+  message,
+  topicInfo,
+};
+
+const store = configureStore({ reducer });
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
