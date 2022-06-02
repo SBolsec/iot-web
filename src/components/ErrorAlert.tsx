@@ -1,7 +1,5 @@
 import React from "react";
 
-import { useNavigate } from "react-router-dom";
-
 import { Alert, Button, Card, Center } from "@mantine/core";
 import { IconAlertCircle } from "@tabler/icons";
 
@@ -9,8 +7,6 @@ import * as messageActions from "../store/slices/messages.actions";
 import { useAppDispatch } from "../store/store";
 
 export default function ErrorAlert() {
-  const navigate = useNavigate();
-
   const dispatch = useAppDispatch();
 
   const onClick = () => {

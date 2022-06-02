@@ -15,6 +15,7 @@ import {
   Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { showNotification } from "@mantine/notifications";
 import {
   IconCircleX,
   IconDeviceFloppy,
@@ -33,7 +34,7 @@ import * as messagesSelectors from "../../store/slices/messages.selectors";
 import * as topicInfoActions from "../../store/slices/topicInfo.actions";
 import * as topicInfoSelectors from "../../store/slices/topicInfo.selectors";
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { showNotification } from "@mantine/notifications";
+
 
 export default function Homepage() {
   const dispatch = useAppDispatch();
@@ -78,7 +79,6 @@ function FilterCard() {
     value: room.topic,
   }));
   roomOptions.unshift({ label: "All rooms", value: "" });
-  console.log(roomOptions);
 
   const onSubmit = (values: MessageFilter) => {
     dispatch(messagesActions.filter(values));
